@@ -24,7 +24,6 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: curl https://loose.atlt/api/2/application-properties -u mario.rivis@gmail.com:${{secrets.test}}
+      run: curl https://loose.atlt/api/2/application-properties -u mario.rivis@gmail.com:${{secrets.JIRA_TOKEN}}
       env:
-        SSH_KEY: ${{secrets.test}}
         firstName: Mario
