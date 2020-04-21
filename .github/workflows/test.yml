@@ -24,6 +24,11 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: curl https://loose.atlassian.net/rest/api/2/application-properties -u mario.rivis@gmail.com:"$jiraToken"
+      shell: bash
       env:
         jiraToken: ${{ secrets.JIRA_TOKEN }}
+        envVariable: yes it is
+      run: |
+        echo $envVariable
+        echo $jiraToken
+        curl https://loose.atlassian.net/rest/api/2/application-properties -u "mario.rivis@gmail.com:$jiraToken"
