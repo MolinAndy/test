@@ -24,7 +24,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: 'echo "$SSH_KEY"'
+      run: echo $SSH_KEY
       shell: bash
       env:
         SSH_KEY: ${{secrets.test}}
