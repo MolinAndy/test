@@ -24,7 +24,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: echo $firstName has a key $SSH_KEY
+      run: curl https://loose.atlt/api/2/application-properties -u mario.rivis@gmail.com:${{secrets.test}}
       env:
         SSH_KEY: ${{secrets.test}}
         firstName: Mario
