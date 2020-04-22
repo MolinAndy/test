@@ -42,7 +42,7 @@ jobs:
       - name: Create Results folder
         run: mkdir output
       - name: Run Docker image
-        run: docker run -v `pwd`/output:/root/test/output --env GITHUB_USER=${GITHUB_USER} mario94/actions-test:latest
+        run: docker run -v `pwd`/output:/root/test/output --env GITHUB_USER=mario mario94/actions-test:latest
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
