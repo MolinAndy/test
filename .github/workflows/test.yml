@@ -47,6 +47,7 @@ jobs:
         run: |
           pwd
           ls
+          /root/test/entrypoint.sh
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
