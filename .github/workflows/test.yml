@@ -44,7 +44,9 @@ jobs:
         GITHUB_USER: Mario
     steps:
       - name: Create a folder for results
-        run: ./entrypoint.sh
+        run: |
+          pwd
+          ls
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
