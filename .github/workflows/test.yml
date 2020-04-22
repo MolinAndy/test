@@ -36,22 +36,17 @@ jobs:
   
   docker-test:
     runs-on: ubuntu-latest
-    container: 
-      image: mario94/actions-test:latest
-      volumes: 
-        - /opt/output:/root/test/output 
-      env:
-        GITHUB_USER: Mario
+    env:
+      - GITHUB_USER: Mario Rivis 
     steps:
-      - name: Create a folder for results
-        run: |
-          pwd
-          ls
-          /root/test/entrypoint.sh
+      - name: Create Results folder
+        run: mkdir output
+      - name: Run Docker image
+        run: docker run -v `pwd`/output:/root/test/output --env GITHUB_USER=$GITHUB_USER mario94/actions-test:latest
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
           name: result-file
-          path: /root/test/output
+          path: /output
     
     
