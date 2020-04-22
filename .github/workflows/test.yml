@@ -37,7 +37,7 @@ jobs:
   docker-test:
     runs-on: ubuntu-latest
     env:
-      - GITHUB_USER: Mario Rivis 
+      GITHUB_USER: Mario Rivis
     steps:
       - name: Create Results folder
         run: mkdir output
