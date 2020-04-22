@@ -29,6 +29,26 @@ jobs:
         jiraToken: ${{ secrets.JIRA_TOKEN }}
         envVariable: yes it is
       run: |
+        pwd
         echo $envVariable
         echo $jiraToken
         curl https://loose.atlassian.net/rest/api/2/application-properties -u "mario.rivis@gmail.com:$jiraToken"
+  
+  docker-test:
+    runs-on: ubuntu-latest
+    container: 
+      image: mario94/actions-test:latest
+      volumes: 
+        - /opt/output:/root/test/output 
+      env:
+        GITHUB_USER: Mario
+    steps:
+      - name: Create a folder for results
+        run: ./entrypoint.sh
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: result-file
+          path: /root/test/output
+    
+    
